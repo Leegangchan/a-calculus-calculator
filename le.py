@@ -2,6 +2,13 @@ from sympy import *
 import sys
 
 
+def differential(fx, var):
+    Cal1 = Derivative(fx, var).doit()
+
+def integral(fx, var, intvl):
+    Cal2 = Integral(fx, (var, intvl[0], intvl[1])).doit()
+
+
 while true:
 
 
@@ -13,10 +20,7 @@ while true:
 #symbol 생성
     var = Symbol(var)
 
-#수식으로 변환
-    fx = sympify(fx)
-    a = sympify(a)
-    b = sympify(b)
+
 
 #적분구간
     intvl = [a, b]
@@ -26,17 +30,17 @@ while true:
     print(Integral(fx, var).doit())
     print(Integral(fx, (var, intvl[0], intvl[1])).doit())
 
+    while true:
+        co = input('다른것도 적분하나요?(y, n): ')
+        if co == 'y':
+            break
 
-    co = input('다른것도 적분하나요?(y, n): ')
-    if co == 'y':
-        continue
+        elif co == 'n':
+            sys.exit()
 
-    elif co == 'n':
-        sys.exit()
-
-    else:
-        print('일안해')
-        sys.exit()
+        else:
+            print('음...그거맞나요?')
+            continue
 
 
 
