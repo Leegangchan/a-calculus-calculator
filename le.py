@@ -9,8 +9,8 @@ def differential(fx, var):
     return Cal1
 
 def integral(fx, var, intvl):
-    Cal2 = Integral(fx, (var, intvl[0], intvl[1])).doit()
-    return Cal2
+    Cal1 = Integral(fx, (var, intvl[0], intvl[1])).doit()
+    return Cal1
 
 
 plt.grid(true)
@@ -26,12 +26,11 @@ while true:
        var = Symbol(var)
        
        Cal1 = differential(fx, var)
-       x = np.array(range(-10, 10))
-
-       plt.plot(x, fx)
-       plt.plot(x, Cal1)
+       
+       plot(fx, Cal1)
+       
        print('result:f(x) = {0}'.format(Cal1))
-       plt.show()
+       
     elif Calculus == '적분':
         var = input('적분변수를 입력하세요: ')
         fx = input('피적분 함수를 입력하세요(입력예:x**2+1): ')
@@ -40,17 +39,15 @@ while true:
         var = Symbol(var)
 
         intvl = [a, b]
-        x = np.array(range(-10, 10))
-        Cal2 = integral(fx, var, intvl)
-        plt.plot(x, fx)
-        plt.plot(x, Integral(fx, var).doit())
+        
+        Cal1 = integral(fx, var, intvl)
+        
 
 
         print('result1: {0}'.format(Integral(fx, var).doit()))
-        print('result2: {0}'.format(Cal2))
-        plt.legend()
-        plt.show()
-
+        print('result2: {0}'.format(Cal1))
+        
+        plot(fx, Integral(fx, var).doit())
     elif Calculus == '멈춰':
         print('작동을 정지합니다')
         break
@@ -59,6 +56,8 @@ while true:
         print('저가 물어본건 그게 아닌데요?')
         continue
 
+    plot(fx, Cal1)
+    
 
         
 
