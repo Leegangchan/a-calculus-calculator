@@ -1,5 +1,7 @@
 from sympy import *
 import sys
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 def differential(fx, var):
@@ -10,6 +12,10 @@ def integral(fx, var, intvl):
     Cal2 = Integral(fx, (var, intvl[0], intvl[1])).doit()
     return Cal2
 
+
+plt.grid(true)
+
+
 while true:
     
     Calculus = input('미분할건가요?적분할건가요?아니면 멈추나요?(입력예:미분, 적분, 멈춰): ')
@@ -18,10 +24,14 @@ while true:
        var = input('그냥 미분에 기준이되는 변수를 입력하세요: ')
 
        var = Symbol(var)
-
+       
        Cal1 = differential(fx, var)
+       x = np.array(range(-10, 10))
 
+       plt.plot(x, fx)
+       plt.plot(x, Cal1)
        print('result:f(x) = {0}'.format(Cal1))
+       plt.show()
     elif Calculus == '적분':
         var = input('적분변수를 입력하세요: ')
         fx = input('피적분 함수를 입력하세요(입력예:x**2+1): ')
@@ -30,11 +40,17 @@ while true:
         var = Symbol(var)
 
         intvl = [a, b]
-
+        x = np.array(range(-10, 10))
         Cal2 = integral(fx, var, intvl)
+        plt.plot(x, fx)
+        plt.plot(x, Integral(fx, var).doit())
+
 
         print('result1: {0}'.format(Integral(fx, var).doit()))
         print('result2: {0}'.format(Cal2))
+        plt.legend()
+        plt.show()
+
     elif Calculus == '멈춰':
         print('작동을 정지합니다')
         break
