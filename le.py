@@ -13,7 +13,6 @@ def integral(fx, var, intvl):
     return Cal1
 
 
-plt.grid(true)
 
 
 while true:
@@ -56,7 +55,6 @@ while true:
         print('저가 물어본건 그게 아닌데요?')
         continue
 
-    plot(fx, Cal1)
     
 
         
