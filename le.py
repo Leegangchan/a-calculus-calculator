@@ -9,11 +9,10 @@ def differential(fx, var):
     return Cal1
 
 def integral(fx, var, intvl):
-    Cal1 = Integral(fx, (var, intvl[0], intvl[1])).doit()
-    return Cal1
+    Cal2 = Integral(fx, (var, intvl[0], intvl[1])).doit()
+    return Cal2
 
 
-plt.grid(true)
 
 
 while true:
@@ -40,12 +39,12 @@ while true:
 
         intvl = [a, b]
         
-        Cal1 = integral(fx, var, intvl)
+        Cal2 = integral(fx, var, intvl)
         
 
 
         print('result1: {0}'.format(Integral(fx, var).doit()))
-        print('result2: {0}'.format(Cal1))
+        print('result2: {0}'.format(Cal2))
         
         plot(fx, Integral(fx, var).doit())
     elif Calculus == '멈춰':
@@ -56,7 +55,6 @@ while true:
         print('저가 물어본건 그게 아닌데요?')
         continue
 
-    plot(fx, Cal1)
     
 
         
