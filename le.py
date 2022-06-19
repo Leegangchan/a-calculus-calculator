@@ -42,11 +42,10 @@ while true:
         Cal2 = integral(fx, var, intvl)
         
 
-
+        plot(fx, Integral(fx, var).doit())
         print('result1: {0}'.format(Integral(fx, var).doit()))
         print('result2: {0}'.format(Cal2))
         
-        plot(fx, Integral(fx, var).doit())
     elif Calculus == '멈춰':
         print('작동을 정지합니다')
         break
