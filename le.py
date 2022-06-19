@@ -26,10 +26,10 @@ while true:
        
        Cal1 = differential(fx, var)
        
-       plot(fx, Cal1)
        
        print('result:f(x) = {0}'.format(Cal1))
-       
+
+       plot(fx, Cal1)
     elif Calculus == '적분':
         var = input('적분변수를 입력하세요: ')
         fx = input('피적분 함수를 입력하세요(입력예:x**2+1): ')
